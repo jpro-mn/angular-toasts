@@ -29,7 +29,7 @@ angular.module("angular-toasts", []).directive("toast", ["$timeout", function ($
 	        })();
 
 	        function showToast(toastOptions) {
-	            scope.alertClass = toastOptions.type;
+	            scope.alertClass = toastOptions.type || "alert-info";
 	            scope.text = toastOptions.text;
 
 	            $timeout(function () {
@@ -40,16 +40,16 @@ angular.module("angular-toasts", []).directive("toast", ["$timeout", function ($
 	            });
 
 	            $timeout(function () {
-	                
-                    if (toastOptions.reload) {
-                        location.reload();
-                    }
 
-	                $(element).fadeOut(function () {
-	                    if (queue.length > 0) {
-	                        showToast(queue.pop());
-	                    }
-	                });
+	                if (toastOptions.reload) {
+	                    location.reload();
+	                } else {
+	                    $(element).fadeOut(function() {
+	                        if (queue.length > 0) {
+	                            showToast(queue.pop());
+	                        }
+	                    });
+	                }
 	            }, options.timeout);
 	        };
 
