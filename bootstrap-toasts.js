@@ -1,5 +1,5 @@
-angular.module("ui-toasts", [])
-	.directive("toast", function($timeout) {
+angular.module("bootstrap-toasts", [])
+	.directive("toast", ["$timeout", function($timeout) {
         return {
             replace: true,
             templateUrl: "template/toast.html",
@@ -58,12 +58,12 @@ angular.module("ui-toasts", [])
                 });
             }
         };
-    })
+    }])
 	.run(["$templateCache", function($templateCache) {
 		$templateCache.put("template/toast.html",
-		  "\n" +
-		  "<div class='alert' ng-class='alertClass'>\n" +
-		  "  {{text}}\n" +
-		  "</div>\n" +
-		  "");
+			"\n" +
+			"<div class='alert' ng-class='alertClass'>\n" +
+			"  {{text}}\n" +
+			"</div>\n" +
+			"");
 	}]);
