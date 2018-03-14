@@ -1,9 +1,8 @@
-angular-toasts
-===================
+# angular-toasts
 
 Angular directive for Bootstap "toast" notifications.
 
-###Usage###
+## Usage
 
 Some where in your HTML, use the directive:
 ```
